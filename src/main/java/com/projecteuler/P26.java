@@ -6,42 +6,24 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 public class P26 {
-
-	static class Pair {
-		int f;
-		int s;
-
-		public Pair(int f, int s) {
-			this.f = f;
-			this.s = s;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (obj instanceof Pair) {
-				Pair other = (Pair) obj;
-				return other.f == this.f && other.s == this.s;
-			}
-			return false;
-		}
-
-		@Override
-		public int hashCode() {
-			return f + s;
-		}
-	}
-
 	public static void main(String[] args) {
 		int maxLength = 6;
-		int d = 9;
+		int d = 7;
+		
+		int last = -1;
+		long start = System.currentTimeMillis();
 		for (; d < 1000; d++) {
-			int a = 1;
-			List<Integer> records = Lists.newArrayList(1);
+			int a = 10;
+			List<Integer> records = Lists.newArrayList();
 			List<Integer> results = new ArrayList<Integer>();
 			while (true) {
+				records.add(a);
 				while (a < d) {
 					a *= 10;
 					results.add(0);
+					if (a < d) {
+						records.add(a);
+					}
 				}
 
 				int remain = a % d;
@@ -52,24 +34,25 @@ public class P26 {
 
 				int divide = a / d;
 				results.add(divide);
-				
-				if(records.size() > 10000) {
+
+				if (records.size() > 10000) {
 					System.out.println("##############>10000未能除尽，认为是无理数");
 					break;
 				}
-				int pos = records.indexOf(remain);
+				a = remain * 10;
+				int pos = records.indexOf(a);
 				if (pos >= 0) {
 					// 找到循环点
 					if (maxLength < (records.size() - pos)) {
 						maxLength = records.size() - pos;
-						System.out.println("找到D: " + d);
+						last = d;
 					}
 					break;
 				}
-				a = remain;
-				// records.add(new Pair(a, d));
 			}
 		}
+		System.out.println(last);
+		System.out.println(System.currentTimeMillis() - start);
 	}
 
 }
