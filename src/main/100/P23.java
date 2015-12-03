@@ -1,4 +1,4 @@
-package com.projecteuler;
+
 
 import java.util.ArrayList;
 import java.util.HashSet;

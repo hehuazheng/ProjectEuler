@@ -1,4 +1,4 @@
-package com.projecteuler;
+
 
 import java.io.FileNotFoundException;
 

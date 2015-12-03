@@ -1,4 +1,4 @@
-package com.projecteuler;
+
 
 public class P28 {
 

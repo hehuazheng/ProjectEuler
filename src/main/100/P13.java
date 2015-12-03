@@ -1,4 +1,4 @@
-package com.projecteuler;
+
 
 import java.io.File;
 import java.io.IOException;
