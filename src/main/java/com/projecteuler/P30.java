@@ -8,6 +8,7 @@ public class P30 {
 	public static void main(String[] args) {
 		long start = System.currentTimeMillis();
 		int times = 5;
+		// 最大值界定，7个以上9连续时值也不会大于相应位数的整数
 		int end = 7 * power(9,5);
 		List<Integer> resultList = new ArrayList<Integer>();
 		for(int i = 2; i < end; i++) {
