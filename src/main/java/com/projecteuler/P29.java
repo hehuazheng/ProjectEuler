@@ -1,19 +1,15 @@
 package com.projecteuler;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import com.google.common.base.Joiner;
 import com.study.common.util.NumberUtils;
-import com.study.common.util.Pair;
 
 public class P29 {
 
 	public static void main(String[] args) {
 		List<Integer> primeList = NumberUtils.generatePrimeList(101);
-		Set<String> history = new HashSet<>();
 		final int max = 101;
 		String[][] tb = new String[max][max];
 		for (int i = 2; i < max; i++) {

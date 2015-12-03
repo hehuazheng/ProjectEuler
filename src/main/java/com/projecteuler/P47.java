@@ -9,20 +9,27 @@ public class P47 {
 
 	static List<Integer> primeList = NumberUtils.generatePrimeList(10000);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		long start = System.currentTimeMillis();
-		for (int i = 1001; i < 10000; i++) {
-			if (diffPrimeCountEqualTo4(i) && diffPrimeCountEqualTo4(i + 1)
-					&& diffPrimeCountEqualTo4(i + 2)
-					&& diffPrimeCountEqualTo4(i + 3)) {
-				System.out.println(i);
+		List<Integer> primeCntList = Lists.newArrayList();
+		for (int i = 1001; i < 1004; i++) {
+			primeCntList.add(diffPrimeCountEqualTo4(i));
+
+		}
+		for (int i = 1004; i < 1000000; i++) {
+			primeCntList.add(diffPrimeCountEqualTo4(i));
+			int sz = primeCntList.size();
+			if (primeCntList.get(sz - 1) == 4 && primeCntList.get(sz - 2) == 4
+					&& primeCntList.get(sz - 3) == 4
+					&& primeCntList.get(sz - 4) == 4) {
+				System.out.println(i + 1001);
 				break;
 			}
 		}
 		System.out.println("time: " + (System.currentTimeMillis() - start));
 	}
 
-	static boolean diffPrimeCountEqualTo4(int num) {
+	static int diffPrimeCountEqualTo4(int num) throws Exception {
 		int n = num;
 		int cnt = 0;
 
@@ -43,8 +50,7 @@ public class P47 {
 				}
 			}
 		}
-		System.out.println("num: " + num + " cnt: " + cnt + " " + primes);
-		return cnt == 4;
+		return cnt;
 	}
 
 }
