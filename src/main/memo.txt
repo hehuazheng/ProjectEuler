@@ -1,0 +1,1 @@
+p96 解数独 ?　brute force
