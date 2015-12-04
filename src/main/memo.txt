@@ -1,1 +1,7 @@
 p96 解数独 ?　brute force
+
+
+	public static void main(String[] args) {
+		long start = System.currentTimeMillis();
+		System.out.println("time: " + (System.currentTimeMillis() - start));
+	}
